@@ -1,0 +1,242 @@
+.header__produce{
+    background: linear-gradient(133deg,#eeedf7,#7b83f7,#3105f7)!important;
+}
+@media (max-width:1000px) {
+    #header-top {
+        display: none;
+    }
+    #vaccine{
+        display: none;
+    }
+}
+.footer {
+    padding-top: 2%;
+    border-top: 2px solid gray;
+    text-align: left;
+    font-size: 0.9rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .fh5co-widget img{
+    height:  5rem;
+  }
+  .fh5co-social-icons{
+    list-style-type: none;
+
+  }
+  .fh5co-social-icons li{
+    display: inline-block;
+  }
+  .text-center .block{
+    color: #040505;
+    font-size: 16px;
+  }
+  .fh5co-footer-links{
+    list-style-type: none;
+  }
+  .footer .container .row .active {
+       border-left:1px solid gray ;
+  }
+  .footer .container .row .active ul li a{
+     color: black;
+  }
+   .myslider .img h2 {
+	 position: absolute;
+	left: 50%;
+	top: 85%;
+	font-size: 1.8rem;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	text-shadow: 1px 1px 4px #999;
+  }
+ .img {
+    border-radius: 8px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 40%;
+    position: relative;
+  }
+
+  #loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -66px 0 0 -76px;
+    /*border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite; */
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .myaccount-page-wrapper{
+    position: static;
+  }
+  .myaccount-tab-menu {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+
+    .myaccount-tab-menu a {
+      border: 1px solid #ccc;
+      border-bottom: none;
+      font-weight: 600;
+      font-size: 13px;
+      display: block;
+      padding: 10px 15px;
+      text-transform: uppercase;
+    }
+
+    .myaccount-tab-menu a:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .myaccount-tab-menu a:hover, .myaccount-tab-menu a.active {
+      background-color: #ff6e21;
+      border-color: #ff6e21;
+      color: #ffffff;
+    }
+
+    .myaccount-tab-menu a i.fa {
+      font-size: 14px;
+      text-align: center;
+      width: 25px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      #myaccountContent {
+        margin-top: 30px;
+      }
+    }
+
+    .myaccount-content {
+      border: 2px solid rgb(197, 197, 197);
+      padding: 30px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .myaccount-content {
+        padding: 20px 15px;
+      }
+    }
+
+    .myaccount-content form {
+      margin-top: -20px;
+    }
+
+    .myaccount-content h3 {
+      font-size: 20px;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .myaccount-content .welcome a:hover {
+      color:#ccc;
+    }
+
+    .myaccount-content .welcome strong {
+      font-weight: 600;
+      color: #ff6e21;
+    }
+
+    .myaccount-content fieldset {
+      margin-top: 20px;
+    }
+
+    .myaccount-content fieldset legend {
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .myaccount-content .account-details-form {
+      margin-top: 50px;
+    }
+
+    .myaccount-content .account-details-form .single-input-item {
+      margin-bottom: 20px;
+    }
+
+    .myaccount-content .account-details-form .single-input-item label {
+      font-size: 14px;
+      text-transform: capitalize;
+      display: block;
+      margin: 0 0 5px;
+    }
+
+    .myaccount-content .account-details-form .single-input-item input {
+      border: 1px solid #e8e8e8;
+      height: 50px;
+      background-color: transparent;
+      padding: 2px 20px;
+      color: #1f2226;
+      font-size: 13px;
+    }
+
+    .myaccount-content .account-details-form .single-input-item input:focus {
+      border: 1px solid #343538;
+    }
+
+    .single-input-item button {
+      border: none;
+      background-color: #ff6e21;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 9px 25px;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .myaccount-content .account-details-form .single-input-item button:hover {
+      background-color: #1f2226;
+    }
+
+    .myaccount-table {
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .myaccount-table table th,
+    .myaccount-table .table th {
+      padding: 10px;
+      font-weight: 600;
+      background-color: #f8f8f8;
+      border-color: #ccc;
+      border-bottom: 0;
+      color: #1f2226;
+    }
+
+    .myaccount-table table td,
+    .myaccount-table .table td {
+      padding: 10px;
+      vertical-align: middle;
+      border-color: #ccc;
+    }
+
+    .saved-message {
+      background-color: #fff;
+      border-top: 3px solid #ff6e21;
+      font-size: 14px;
+      padding: 20px 0;
+      color: #333;
+    }

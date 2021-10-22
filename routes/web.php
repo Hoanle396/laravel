@@ -1,0 +1,62 @@
+<?php
+
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+//Client
+
+Route::get('/','HomeController@index');
+Route::get('/Auth/Help','HomeController@help');
+Route::get('/Auth/Login','HomeController@login');
+Route::get('/Auth/Register','HomeController@register');
+
+
+Route::get('/Auth/Logout','AuthControler@logout');
+Route::post('/Register','AuthControler@registeracc');
+Route::post('/Login','AuthControler@login');
+Route::get('/Auth/Profile','AuthControler@profile');
+Route::get('/Auth/Forgot','AuthControler@forgot');
+Route::get('/Auth/Forgoted/','AuthControler@forgoted');
+Route::post('/Auth/Change','AuthControler@change');
+
+Route::get('/Auth/Product','ProductController@product');
+Route::get('/Auth/Product/{product_id}','ProductController@productview');
+Route::get('/add-to-cart/{id}', 'ProductController@addToCart');
+Route::get('/remove-from-cart/{id}', 'ProductController@remove');
+Route::get('Auth/Search/{search}','ProductController@search');
+
+Route::get('Checkout','CheckoutController@index');
+Route::post('Checkout/success','CheckoutController@success');
+Route::get('Bank','CheckoutController@banking');
+
+Route::get('/Auth/Tintuc','NewsController@tintuc');
+Route::get('/Auth/Tintuc/{id}','NewsController@tintucdetail');
+Route::get('/Auth/Tintuc/Search/{search}','NewsController@search');
+
+Route::get('Auth/Service','ServiceController@index');
+Route::post('Auth/service','ServiceController@service');
+Route::post('Auth/Feedback','ServiceController@feedback');
+
+//Admin
+Route::get('/Admin','AdminController@index');
+Route::get('/Admin/dashboard','AdminController@dashboard');
+Route::get('/Admin/Logout','AdminController@logout');
+Route::post('/admin_dashboard','AdminController@login_dashboard');
+
+Route::get('/Admin/addproduct','AdminProduct@add');
+Route::post('/Admin/add-product','AdminProduct@addproduct');
+Route::get('/Admin/product','AdminProduct@all');
+Route::get('/Admin/product/delete/{id}','AdminProduct@delete');
+Route::get('Admin/product/update/{id}','AdminProduct@updateproduct');
+Route::post('Admin/update-product','AdminProduct@update');
