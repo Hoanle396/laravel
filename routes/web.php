@@ -60,3 +60,10 @@ Route::get('/Admin/product','AdminProduct@all');
 Route::get('/Admin/product/delete/{id}','AdminProduct@delete');
 Route::get('Admin/product/update/{id}','AdminProduct@updateproduct');
 Route::post('Admin/update-product','AdminProduct@update');
+
+Route::get('Admin/service','AdminService@all');
+Route::get('Admin/Service/delete/{id}','AdminService@delete');
+Route::get('Admin/service/update/{id}','AdminService@updateservice');
+Route::post('Admin/service/update','AdminService@update');
+Route::get('Admin/list-service','AdminService@list');
+Route::get('Admin/Service/done/{id}','AdminService@done');
