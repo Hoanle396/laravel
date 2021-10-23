@@ -54,6 +54,7 @@ class AuthControler extends Controller
         $data["user_fullname"] = $request->inputFirstName . " " . $request->inputLastName;
         $data['user_email'] = $request->inputEmail;
         $data['user_password'] = $request->inputPassword;
+        $data['user_status'] = 'Hoạt Động';
         $passwordconfrim = $request->inputPasswordConfirm;
         if ($data['user_password'] == $passwordconfrim) {
             try {

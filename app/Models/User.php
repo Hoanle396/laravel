@@ -23,10 +23,9 @@ class User extends Model
         'user_fullname',
         'user_email',
         'user_password',
-        'user_bankname',
-        'user_banknumber',
         'user_address',
-        'user_phonenumber'
+        'user_phonenumber',
+        'user_status',
     ];
     protected $primarykey='user_id';
     /**

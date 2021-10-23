@@ -67,3 +67,5 @@ Route::get('Admin/service/update/{id}','AdminService@updateservice');
 Route::post('Admin/service/update','AdminService@update');
 Route::get('Admin/list-service','AdminService@list');
 Route::get('Admin/Service/done/{id}','AdminService@done');
+
+Route::get('Admin/customer','AdminAuth@all');

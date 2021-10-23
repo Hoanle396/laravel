@@ -158,12 +158,6 @@
     </div>
 </section>
 
-@if (Session::get('message'))
-<script>
-    alert("{{Session::get('message')}}")
-</script>
-{{Session::put("message", null)}}
-@endif
 <div class="modal fade" id="address" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -248,4 +242,28 @@
             })
     });
 </script>
+@if(Session::get('message'))
+<script>
+    $(document).ready(function() {
+        $('#global-modal').modal('show');
+    });
+</script>
+@endif
+<div id="global-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Thông báo</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><span class="text-primary">{{Session::get('message')}}</span> {{Session::put('message',null)}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -18,10 +18,9 @@ class CreateTblUsersTable extends Migration
             $table->string('user_fullname');
             $table->string('user_email')->unique();
             $table->string('user_password');
-            $table->string('user_bankname')->nullable();
-            $table->string('user_banknumber')->nullable();
             $table->string('user_address')->nullable();
             $table->string('user_phonenumber')->nullable();
+            $table->string('user_status')->nullable();
             $table->timestamps();
         });
     }
