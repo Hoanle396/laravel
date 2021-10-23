@@ -105,7 +105,7 @@
                             <ul class="sub">
                                 <li><a href="{{URL::to('Admin/addproduct')}}">Thêm Sản Phẩm</a></li>
                                 <li><a href="{{URL::to('Admin/product')}}">Tất Cả Sản Phẩm</a></li>
-                                <li><a href="grids.html">Khác</a></li>
+                                <li><a href="{{URL::to('Admin/other')}}">Khác</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -115,7 +115,8 @@
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('Admin/service')}}">Danh sách đăng kí</a></li>
-                                <li><a href="grids.html">Khác</a></li>
+                                <li><a href="{{URL::to('Admin/list-service')}}">Lịch Hẹn</a></li>
+                                <li><a href="{{URL::to('Admin/other')}}">Khác</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -125,7 +126,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('Admin/customer')}}">Danh Sách Khách Hàng</a></li>
-                                <li><a href="grids.html">Khác</a></li>
+                                <li><a href="{{URL::to('Admin/other')}}">Khác</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -135,7 +136,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('Admin/allorder')}}">Danh Sách Đơn Hàng</a></li>
-                                <li><a href="grids.html">Khác</a></li>
+                                <li><a href="{{URL::to('Admin/other')}}">Khác</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
