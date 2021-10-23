@@ -3,18 +3,6 @@
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
-            <div class="col-md-12 text-center">
-                <?php
-
-                use Illuminate\Support\Facades\Session;
-
-                $message = Session::get('message');
-                if (Session::get('message')) {
-                    echo '<h4><span class="text-primary bg-success">' . $message . '</span></h4>';
-                    Session::put("message", null);
-                }
-                ?>
-            </div>
         </div>
         <div class="table-agile-info">
             <div class="panel panel-default">
@@ -62,8 +50,39 @@
                     <div class="row">
                         {{$service->links()}}
                     </div>
-                </footer>   
+                </footer>
             </div>
         </div>
     </section>
+    @if(Session::get('message'))
+    <script>
+        $(document).ready(function() {
+            $('#global-modal').modal('show');
+        });
+    </script>
+    @endif
+    <div id="global-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thông báo</h4>
+                </div>
+                <div class="modal-body">
+                    <p><span class="text-primary">{{Session::get('message')}}</span> </p>
+                    <?php
+
+                    use Illuminate\Support\Facades\Session;
+
+                    Session::put("message", null); ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     @endsection
