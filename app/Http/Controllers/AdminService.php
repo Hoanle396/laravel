@@ -26,8 +26,12 @@ class AdminService extends Controller
     public function delete($id)
     {
         if (Session::get("admin_name")) {
-            $product = Service::where('service_id', $id)->delete();
-            if ($product) {
+            $service = Service::where('service_id', $id)->delete();
+            $join= Join::where('service_id', $id)->get()->first();
+            if($join){
+                Join::where('service_id', $id)->delete();
+            }
+            if ($service) {
                 Session::put('message', 'Đã xóa ');
                 return Redirect::to('/Admin/service');
             } else {
