@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Carbon\Carbon as time;
 use Exception;
 use Illuminate\Support\Facades\Session;
@@ -30,10 +31,10 @@ class ServiceController extends Controller
             'service_mobilePhone' => $request->mobilePhone,
             'service_homePhone' => $request->homePhone,
             'service_officePhone' => $request->officePhone,
-            'created_at' => Time::now()
+            'service_status'=>'Chưa Xử Lý'
         ];
         try {
-            DB::table('tbl_service')->insert($data);
+            Service::create($data);
             Session::put("message", "Đăng Kí Thành Công");
             return Redirect::back();
         } catch (Exception $e) {
