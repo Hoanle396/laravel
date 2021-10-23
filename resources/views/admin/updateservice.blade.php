@@ -1,0 +1,82 @@
+@extends('admin_layout')
+@section('layout')
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <?php
+
+                use Illuminate\Support\Facades\Session;
+
+                $message = Session::get('message');
+                if (Session::get('message')) {
+                    echo '<h4><span class="text-primary">' . $message . '</span></h4>';
+                    Session::put("message", null);
+                }
+                ?>
+            </div>
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Lên Lịch Hẹn
+                        <span class="tools pull-right">
+                            <a class="fa fa-chevron-down" href="javascript:;"></a>
+                        </span>
+                    </header>
+                    <div class="panel-body">
+                        <div class=" form">
+                            <form class="cmxform form-horizontal " action="{{URL::to('Admin/service/update')}}" method="post" enctype="multipart/form-data" validate>
+                                @csrf
+                                <input type="hidden" name="service_id" value="{{$service->service_id}}">
+                                <div class="form-group ">
+                                    <label for="cname" class="control-label col-lg-3">Tên Khách Hàng</label>
+                                    <div class="col-lg-6">
+                                        <input class="input-lg m-bot15 form-control" name="service_fullname" minlength="2" type="text" value="{{$service->service_fullname}}" required="" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="cname" class="control-label col-lg-3">Email Khách Hàng</label>
+                                    <div class="col-lg-6">
+                                        <input class="input-lg m-bot15 form-control" name="service_email" minlength="2" type="text" value="{{$service->service_email}}" required="" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-3">Giờ</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control input-lg m-bot15" type="time" name="join_time"  required="">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="curl" class="control-label col-lg-3">Ngày</label>
+                                    <div class="col-lg-6">
+                                        <input class="form-control input-lg m-bot15" type="date" name="join_date" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="ccomment" class="control-label col-lg-3">Ghi Chú</label>
+                                    <div class="col-lg-6">
+                                        <textarea class="form-control input-lg m-bot15" id="product_description" name="join_description" style=" resize: none;" required=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-lg-6">
+                                        <button class="btn btn-primary" type="submit">Gửi</button>
+                                        <button class="btn btn-default" type="button">Cancel</button>
+                                       </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    @endsection
+
+    @section('js')
+    <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script src="/js/config.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('product_description');
+    </script>
+    @endsection
