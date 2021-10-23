@@ -17,7 +17,8 @@ class Service extends Model
         'service_email',
         'service_mobilePhone',
         'service_homePhone',
-        'service_officePhone'
+        'service_officePhone',
+        'service_status'
     ];
     protected $primarykey='service_id';
 }
