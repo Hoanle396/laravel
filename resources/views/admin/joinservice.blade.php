@@ -44,7 +44,7 @@
                                 <td>{{$a->join_date}}</td>
                                 <td>{{$a->join_description}}</td>
                                 <td>
-                                    <a type="button" onclick="return confirm('Bạn Có Chắc Chắn Là Đã Hoàn Thành lịch Hẹn chứ')" href="{{URL::to('Admin/Service/done')}}/{{$a->service_id}}" class="btn btn-success"><i class="fa fa-check"></i></a>
+                                    <a type="button" onclick="return confirm('Bạn Có Chắc Chắn Là Đã Hoàn Thành lịch Hẹn Chứ')" href="{{URL::to('Admin/Service/done')}}/{{$a->service_id}}" class="btn btn-success"><i class="fa fa-check"></i></a>
                                 </td>
                             </tr>
                             @endforeach
