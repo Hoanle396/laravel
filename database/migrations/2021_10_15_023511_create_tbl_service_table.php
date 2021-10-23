@@ -23,6 +23,7 @@ class CreateTblServiceTable extends Migration
             $table->string('service_mobilePhone');
             $table->string('service_homePhone');
             $table->string('service_officePhone');
+            $table->string('service_status');
             $table->timestamps();
         });
     }
