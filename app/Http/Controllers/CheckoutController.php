@@ -32,8 +32,9 @@ class CheckoutController extends Controller
         try {
             $oder = [
                 'order_code' => $code,
-                'oder_date' => Time::now(),
-                'oder_pay' => $request->pay,
+                'order_date' => Time::now(),
+                'order_pay' => $request->pay,
+                'order_total'=>$request->total,
                 'order_status' => 'Chờ Xử Lý'
             ];
             DB::table('tbl_order')->insert($oder);

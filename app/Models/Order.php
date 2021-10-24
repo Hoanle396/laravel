@@ -11,9 +11,10 @@ class Order extends Model
     protected $table='tbl_order';
     protected $fillable=[
         'order_code',
-        'oder_date',
-        'oder_pay',
-        'oder_status'
+        'order_date',
+        'order_pay',
+        'order_total',
+        'order_status'
     ];
     protected $primarykey='order_id';
 }

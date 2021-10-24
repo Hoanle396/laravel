@@ -5,16 +5,17 @@
         <div class="table-agile-info">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Tất Cả Order
+                    Order Chưa Xử Lý
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped b-t b-light">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên Khách Hàng</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Địa Chỉ</th>
+                                <th scope="col">Mã Code</th>
+                                <th scope="col">Thời Gian</th>
+                                <th scope="col">Hình Thức Thanh Toán</th>
+                                <th scope="col">Tổng Tiền</th>
                                 <th scope="col">Trạng Thái</th>
                                 <th scope="col">Thao Tác</th>
                             </tr>
@@ -24,12 +25,12 @@
                             <tr>
                                 <td>{{$a->order_id}}</td>
                                 <td>{{$a->order_code}}</td>
-                                <td>{{$a->oder_date}}</td>
-                                <td >{{$a->oder_pay}}</td>
-                                <td>{{$a->oder_status}}</td>
+                                <td>{{$a->order_date}}</td>
+                                <td>{{$a->order_pay}}</td>
+                                <td>{{$a->order_total}}</td>
+                                <td>{{$a->order_status}}</td>
                                 <td>
-                                    <a type="button" onclick="return confirm('Bạn có chắc muốn khóa/mở khóa tài khoản này')" href="{{URL::to('Admin/Customer/update')}}/{{$a->user_id}}" class="btn btn-primary"><i class="fa fa-ban"></i></a>|
-                                    <a type="button" onclick="return confirm('Bạn Có Chắc Muốn Xóa Chứ Hành Động Không Thể Phục Hồi')" href="{{URL::to('Admin/Customer/delete')}}/{{$a->user_id}}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                    <a type="button" href="{{URL::to('Admin/Order/view')}}/{{$a->order_code}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -46,27 +47,32 @@
         <div class="table-agile-info">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    User baned
+                    Tất Cả Order
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped b-t b-light">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên Khách Hàng</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Địa Chỉ</th>
-                                <th scope="col">Số Điện Thoại</th>
+                                <th scope="col">Mã Code</th>
+                                <th scope="col">Thời Gian</th>
+                                <th scope="col">Hình Thức Thanh Toán</th>
+                                <th scope="col">Tổng Tiền</th>
                                 <th scope="col">Trạng Thái</th>
                                 <th scope="col">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($order as $id => $b)
+                            @foreach($all as $id => $b)
                             <tr>
+                                <td>{{$b->order_id}}</td>
+                                <td>{{$b->order_code}}</td>
+                                <td>{{$b->order_date}}</td>
+                                <td>{{$b->order_pay}}</td>
+                                <td>{{$a->order_total}}</td>
+                                <td>{{$b->order_status}}</td>
                                 <td>
-                                    <a type="button" onclick="return confirm('Bạn có chắc muốn khóa/mở khóa tài khoản này')" href="{{URL::to('Admin/Customer/update')}}/{{$a->user_id}}" class="btn btn-primary"><i class="fa fa-refresh"></i></a>|
-                                    <a type="button" onclick="return confirm('Bạn Có Chắc Muốn Xóa Chứ Hành Động Không Thể Phục Hồi')" href="{{URL::to('Admin/Customer/delete')}}/{{$a->user_id}}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                    <a type="button" href="{{URL::to('Admin/Order/view')}}/{{$a->order_code}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -73,3 +73,4 @@ Route::get('Admin/Customer/delete/{id}','AdminAuth@delete');
 Route::get('Admin/Customer/update/{id}','AdminAuth@block');
 
 Route::get('/Admin/allorder','AdminOrder@allorder');
+Route::get('Admin/Order/view/{code}', 'AdminOrder@detailorder');
