@@ -22,12 +22,17 @@ class AuthControler extends Controller
         $RememberPassword = $request->inputRememberPassword;
         $result = DB::table('tbl_users')->where('user_email', $email)->where('user_password', $password)->first();
         if ($result) {
-            if ($RememberPassword) {
-                Cookie::queue('Email', $email, 10 * 24 * 60);
-                Cookie::queue('Password', $password, 10 * 24 * 60);
+            if ($result->user_status == 'khóa') {
+                Session::put("message", "Tài Khoản Của Bạn Đã Bị Khóa");
+                return Redirect::to('Auth/Login');
+            } else {
+                if ($RememberPassword) {
+                    Cookie::queue('Email', $email, 10 * 24 * 60);
+                    Cookie::queue('Password', $password, 10 * 24 * 60);
+                }
+                Session::put("user_email", $result->user_email);
+                return Redirect::to('./');
             }
-            Session::put("user_email", $result->user_email);
-            return Redirect::to('./');
         } else {
             Session::put("message", "Tài Khoản Hoặc Mật Khẩu Sai");
             return Redirect::to('Auth/Login');
@@ -36,9 +41,14 @@ class AuthControler extends Controller
     public function profile()
     {
         if (Session::get("user_email")) {
-            $account = DB::table('tbl_users')->where('user_email', Session::get('user_email'))->first();
-            $manager_account = view('client.profile')->with("account", $account);
-            return view('welcome')->with('client.profile', $manager_account);
+            $account = DB::table('tbl_users')->where('user_email', Session::get('user_email'))->where('user_status','Hoạt Động')->first();
+            if ($account) {
+                $manager_account = view('client.profile')->with("account", $account);
+                return view('welcome')->with('client.profile', $manager_account);
+            } else {
+                Session::put("user_email", null);
+                return Redirect::to('/Auth/Login');
+            }
         } else {
             return Redirect::to('/Auth/Login');
         }
@@ -91,7 +101,7 @@ class AuthControler extends Controller
     }
     public function change(Request $request)
     {
-        try{
+        try {
             if ($request->changedetail) {
                 $data = [
                     'user_fullname' => $request->name,
@@ -137,8 +147,7 @@ class AuthControler extends Controller
                     return Redirect::to('Auth/Profile');
                 }
             }
-        }
-        catch(Exception){
+        } catch (Exception) {
             abort(404);
         }
     }

@@ -34,7 +34,7 @@ class CheckoutController extends Controller
                 'order_code' => $code,
                 'oder_date' => Time::now(),
                 'oder_pay' => $request->pay,
-                'oder_status' => 'Chờ Xử Lý'
+                'order_status' => 'Chờ Xử Lý'
             ];
             DB::table('tbl_order')->insert($oder);
             foreach (Session::get('cart') as $id => $details) {

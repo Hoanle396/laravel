@@ -69,3 +69,7 @@ Route::get('Admin/list-service','AdminService@list');
 Route::get('Admin/Service/done/{id}','AdminService@done');
 
 Route::get('Admin/customer','AdminAuth@all');
+Route::get('Admin/Customer/delete/{id}','AdminAuth@delete');
+Route::get('Admin/Customer/update/{id}','AdminAuth@block');
+
+Route::get('/Admin/allorder','AdminOrder@allorder');
