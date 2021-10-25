@@ -77,3 +77,7 @@ Route::get('Admin/Order/view/{code}', 'AdminOrder@detailorder');
 
 Route::get('Admin/news','AdminNews@getall');
 Route::get('Admin/news/delete/{id}','AdminNews@delete');
+Route::get('Admin/addnews','AdminNews@loadadd');
+Route::post('Admin/add-news','AdminNews@add');
+Route::get('Admin/news/update/{id}','AdminNews@updatenew');
+Route::post('Admin/update-news','AdminNews@update');

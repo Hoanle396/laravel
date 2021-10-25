@@ -27,10 +27,10 @@
                                 <td>{{$a->news_id}}</td>
                                 <td style="max-width: 300px;">{{$a->news_title}}</td>
                                 <td><img src="{{$a->news_image}}" width="50" height="50" alt=""></td>
-                                <td>{{$a->create_at}}</td>
-                                <td>{{$a->update_at}}</td>
+                                <td>{{$a->created_at}}</td>
+                                <td>{{$a->updated_at}}</td>
                                 <td>
-                                    <a type="button" href="{{URL::to('Admin/product/update')}}/{{$a->product_id}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>|
+                                    <a type="button" href="{{URL::to('Admin/news/update')}}/{{$a->news_id}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>|
                                     <a type="button" onclick="return confirm('Bạn Có Chắc Muốn Xóa Chứ Hành Động Không Thể Phục Hồi')" href="{{URL::to('Admin/news/delete')}}/{{$a->news_id}}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
