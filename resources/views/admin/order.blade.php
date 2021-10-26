@@ -69,10 +69,10 @@
                                 <td>{{$b->order_code}}</td>
                                 <td>{{$b->order_date}}</td>
                                 <td>{{$b->order_pay}}</td>
-                                <td>{{$a->order_total}}</td>
+                                <td>{{$b->order_total}}</td>
                                 <td>{{$b->order_status}}</td>
                                 <td>
-                                    <a type="button" href="{{URL::to('Admin/Order/view')}}/{{$a->order_code}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                    <a type="button" href="{{URL::to('Admin/Order/view')}}/{{$b->order_code}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @endforeach

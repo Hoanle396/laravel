@@ -73,7 +73,7 @@
                                 <td>{{$b->user_phonenumber}}</td>
                                 <td>{{$b->user_status}}</td>
                                 <td>
-                                    <a type="button" onclick="return confirm('Bạn có chắc muốn khóa/mở khóa tài khoản này')" href="{{URL::to('Admin/Customer/update')}}/{{$a->user_id}}" class="btn btn-primary"><i class="fa fa-refresh"></i></a>|
+                                    <a type="button" onclick="return confirm('Bạn có chắc muốn mở khóa tài khoản này')" href="{{URL::to('Admin/Customer/update')}}/{{$a->user_id}}" class="btn btn-primary"><i class="fa fa-refresh"></i></a>|
                                     <a type="button" onclick="return confirm('Bạn Có Chắc Muốn Xóa Chứ Hành Động Không Thể Phục Hồi')" href="{{URL::to('Admin/Customer/delete')}}/{{$a->user_id}}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>

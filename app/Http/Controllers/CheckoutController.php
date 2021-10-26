@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderShipped;
 use App\Models\OderDetail;
 use Carbon\Carbon as time;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -34,7 +36,7 @@ class CheckoutController extends Controller
                 'order_code' => $code,
                 'order_date' => Time::now(),
                 'order_pay' => $request->pay,
-                'order_total'=>$request->total,
+                'order_total' => $request->total,
                 'order_status' => 'Chờ Xử Lý'
             ];
             DB::table('tbl_order')->insert($oder);
@@ -54,9 +56,25 @@ class CheckoutController extends Controller
                 $detail->save();
             }
             if ($request->pay == 'offline') {
+                $order = DB::table('tbl_order_details')->where('oder_code', $code)->select('product_name', 'product_quantity')->get();
+                $data = [
+                    'order' => $order,
+                    'status' => 'Chờ Xử lý',
+                    'code' => $code,
+                    'reson' => 'Gửi từ hệ thống'
+                ];
+                Mail::to($request->email)->send(new OrderShipped($data, 'Đơn Hàng Của Bạn', 'order'));
                 Session::put("message", "Đặt Hàng Thành Công Đơn Hàng Của Bạn Đang Được Xử Lý");
                 return Redirect::back();
             } else if ($request->pay == 'online') {
+                $order = DB::table('tbl_order_details')->where('oder_code', $code)->select('product_name', 'product_quantity')->get();
+                $data = [
+                    'order' => $order,
+                    'status' => 'Chờ Xử lý',
+                    'code' => $code,
+                    'reson' => 'Gửi từ hệ thống'
+                ];
+                Mail::to($request->email)->send(new OrderShipped($data, 'Đơn Hàng Của Bạn', 'order'));
                 Session::put("message", "Đặt Hàng Thành Công Đang Chuyển Hướng Vui Lòng Đợi");
                 Session::put("redirect", "online");
                 Session::put("total", $request->total);
