@@ -57,7 +57,7 @@
                         </div>
                         <div class="mb-3 col-12">
                             <div class="input-group">
-                                <input type="button" id="done" class="btn btn-primary form-control" value="Xác Nhận Đã Chuyển Khoản">
+                                <a onclick="confirm('Cảm ơn bạn đã tin tưởng đặt mua sản phẩm bên cúng tôi')" href="{{URL::to('Auth/done')}}" class="btn btn-primary form-control">Xác Nhận Đã Chuyển Khoản</a>
                             </div>
                         </div>
                     </div>
@@ -66,14 +66,4 @@
         </div>
     </div>
 </div>
-<script>
-    $('#done').click(function() {
-        alert("Cảm ơn bạn chúng tôi sẽ liên hệ với bạn sớm nhất có thể")
-        <?php Session::put("total", null); ?>
-        <?php Session::put("code", null); ?>
-        setTimeout(function() {
-                window.location = "{{URL::to('Auth/Profile')}}";
-            }, 3000)
-    })
-</script>
 @endsection

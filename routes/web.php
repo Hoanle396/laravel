@@ -39,6 +39,7 @@ Route::get('Auth/Search/{search}','ProductController@search');
 Route::get('Checkout','CheckoutController@index');
 Route::post('Checkout/success','CheckoutController@success');
 Route::get('Bank','CheckoutController@banking');
+Route::get('Auth/done', 'CheckoutController@done');
 
 Route::get('/Auth/Tintuc','NewsController@tintuc');
 Route::get('/Auth/Tintuc/{id}','NewsController@tintucdetail');

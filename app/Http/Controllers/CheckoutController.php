@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderShipped;
 use App\Models\OderDetail;
+use App\Models\Order;
 use Carbon\Carbon as time;
 use Exception;
 use Illuminate\Http\Request;
@@ -67,14 +68,6 @@ class CheckoutController extends Controller
                 Session::put("message", "Đặt Hàng Thành Công Đơn Hàng Của Bạn Đang Được Xử Lý");
                 return Redirect::back();
             } else if ($request->pay == 'online') {
-                $order = DB::table('tbl_order_details')->where('oder_code', $code)->select('product_name', 'product_quantity')->get();
-                $data = [
-                    'order' => $order,
-                    'status' => 'Chờ Xử lý',
-                    'code' => $code,
-                    'reson' => 'Gửi từ hệ thống'
-                ];
-                Mail::to($request->email)->send(new OrderShipped($data, 'Đơn Hàng Của Bạn', 'order'));
                 Session::put("message", "Đặt Hàng Thành Công Đang Chuyển Hướng Vui Lòng Đợi");
                 Session::put("redirect", "online");
                 Session::put("total", $request->total);
@@ -94,6 +87,26 @@ class CheckoutController extends Controller
             $bank = DB::table('tbl_banking')->first();
             $bank_ = view('client.bank')->with("bank", $bank);
             return view('welcome')->with('client.bank', $bank_);;
+        }
+    }
+    public function done()
+    {
+        if (!Session::get("total")) {
+            abort(404);
+        } else {
+            OderDetail::where('oder_code', Session::get('code'))->update(['oder_status' => 'Đã thanh toán']);
+            Order::where('order_code', Session::get('code'))->update(['order_status' => 'Đã thanh toán']);
+            $order = DB::table('tbl_order_details')->where('oder_code', Session::get('code'))->select('product_name', 'product_quantity','user_email')->get();
+            $data = [
+                'order' => $order,
+                'status' => 'Chờ Xử lý',
+                'code' => Session::get('code'),
+                'reson' => 'Gửi từ hệ thống'
+            ];
+            Mail::to($order[0]->user_email)->send(new OrderShipped($data, 'Đơn Hàng Của Bạn', 'order'));
+            Session::put("total", null);
+            Session::put("code", null);
+            return Redirect::to('Auth/Profile');
         }
     }
 }
