@@ -96,7 +96,7 @@ class CheckoutController extends Controller
         } else {
             OderDetail::where('oder_code', Session::get('code'))->update(['oder_status' => 'Đã thanh toán']);
             Order::where('order_code', Session::get('code'))->update(['order_status' => 'Đã thanh toán']);
-            $order = DB::table('tbl_order_details')->where('oder_code', Session::get('code'))->select('product_name', 'product_quantity','user_email')->get();
+            $order = DB::table('tbl_order_details')->where('oder_code', Session::get('code'))->select('product_name', 'product_quantity', 'user_email')->get();
             $data = [
                 'order' => $order,
                 'status' => 'Chờ Xử lý',
